@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DUNKIN</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css'><link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="./images/favicon_dunkin.ico" />
+    <link rel="apple-touch-icon" href="./images/favicon_dunkin.ico" />
+  
+    <style>
+        @font-face {
+            font-family: 'Cafe24Ssurround';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Cafe24SsurroundAir';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body{
+            --lemon: rgb(255, 254, 225);
+            --yellow:rgb(248, 237, 135);
+            --orange: #ff6804;
+            --brown: #6b3e02;
+            font-family: 'Cafe24SsurroundAir';
+            background-color: var(--lemon);
+        }
+        .header{
+            width: 100%;
+            background-color: rgb(255, 254, 225);
+            font-family: 'Cafe24Ssurround';
+            font-size: 16px;
+            color: var(--orange);
+        }
+        .lnb{
+            width: 1200px;
+            margin:  auto;
+        }
+        .lnb>ul{    
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        h1{
+            font-size: 0;
+        }
+        h1 img{
+            width: 130px;
+        }
+        .mainBanner{
+            width: 100%;
+            margin-bottom: 5rem;
+        }
+        .mainBanner img{
+            width: 100%;
+        }
+        .mainImg{
+            position: relative;
+        }
+        .toastIndonut{
+            position: absolute;
+            top: 45%;
+            left: 56.4%;
+            width: 300px;
+            animation: toastdonut 2s cubic-bezier(1,.04,.37,1.41) infinite;
+            ;
+        }
+        
+        @keyframes toastdonut{
+            0%{top:45%}
+            50%{top:25%}
+            100%{top:45%}
+        }
+        .toast{
+            position: absolute;
+            top: 8.9%;
+        }
+
+        .donut{
+            position: absolute;
+            top: 3%;
+            left: 45%;
+        }
+        .mainText{
+            position: absolute;
+            font-family: 'Cafe24Ssurround';
+            left: 8%;
+            top: 35%;
+            color: #fff;
+            font-size: 100px;
+        }
+        .mainText .en{
+            font-size: 28px;
+            margin-left: 8px;
+            margin-bottom: 2rem;
+        }
+        .mainText .button{
+            font-family: 'Cafe24SsurroundAir';
+            font-size: 20px;
+            margin-left: 8px;
+            border: 1px solid var(--yellow);
+            border-radius: 20px;
+            color: var(--yellow);
+            float: left;    
+            display: block;
+            padding: 0.6rem 2rem;
+        }
+        
+        .content{
+            width: 1600px;
+            margin: auto;
+            line-height: 3rem;
+        }
+        .textBox{
+            text-align: center;
+            font-family: 'Cafe24SsurroundAir';
+        }
+        .orangeBox{
+            font-weight: bold;
+            font-size: 20px;
+            width: 70px;
+            height: 30px;
+            line-height: 30px;
+            margin: auto;
+            background-color: var(--orange);
+            color: #fff;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        h2{
+            font-family: 'Cafe24Ssurround';
+            font-size: 50px;
+            letter-spacing: -.1rem;
+        }
+        .smallText{
+            font-size: 16px;
+        }
+
+        /* new slide(slick) */
+        .desc h3,
+        .desc p {
+          margin: 15px;
+        }
+        .desc h3{
+          font-family: 'Cafe24Ssurround';
+          color: #744607;
+          font-size: 20px;
+        }
+        .desc p{
+          line-height: 1.5rem;
+        }
+        
+        .slider {
+          max-width: 1000px;
+          width: 90%;
+          margin: 15px auto;
+          padding: 20px 0;
+        }
+        
+        .slick-slider button {
+          display: none!important;
+        }
+        
+        .slick-slide {
+          color: #333;
+          padding: 40px 0;
+          font-size: 1.25em;
+          text-align: center;
+          pointer-events: none;
+        }
+        .slick-slide .img{
+          position: relative;
+        }
+        .slick-slide .shadow{
+          position: absolute;
+          top: 280px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: url(./images/shadow.png);
+          background-size: cover;
+          background-position: center center;
+          width: 300px;
+          height: 60px;
+          opacity: 0;
+        }
+        
+        .slick-slide .desc {
+          opacity: 0;
+        }
+        
+        .slick-slide .desc > * {
+          transition: all 900ms ease;
+        }
+        
+        .slick-slide .desc h3 {
+          position: relative;
+          left: 50px;
+          line-height: 1;
+        }
+        
+        .slick-slide .desc p {
+          position: relative;
+          top: 50px;
+          opacity: 0;
+        }
+        
+        .slick-slide img {
+          width: 100%;
+          margin-bottom: 50px;
+        }
+        
+        .slick-prev:before,
+        .slick-next:before {
+          color: black;
+        }
+        
+        .slick-dots {
+          text-align: center;
+        }
+        
+        .slick-dots li {
+          display: inline-block;
+          padding: 1px;
+          background: var(--yellow);
+          margin: 10px 5px;
+          width: 40px;
+          height: 5px;
+        }
+        
+        .slick-dots li.slick-active {
+          background: var(--brown);
+        }
+        
+        .slick-dots button {
+          display: none;
+        }
+        
+        .slick-slide {
+          transform: scale(0.7);
+          transition: all 300ms ease;
+        }
+        
+        .slick-current {
+          opacity: 1;
+          transform: scale(1.1);
+        }
+        
+        .slick-current .desc {
+          opacity: 1;
+        }
+        .slick-current .shadow{
+          opacity: 0.3;
+        }
+        .slick-current .desc h3 {
+          left: 0;
+        }
+        
+        .slick-current .desc p {
+          top: 0;
+          opacity: 1;
+        }
+        .btn {
+          border-radius: 30px;
+          border: 1px solid var(--yellow);
+          text-decoration: none;
+          color: var(--brown);
+          font-size: .6em;
+          text-transform: uppercase;
+          display: block;
+          margin: 15px auto 0;
+          max-width: 100px;
+          width: 100px;
+          height: 30px;
+          line-height: 30px;
+          font-weight: bold;
+          pointer-events: initial;
+          position: relative;
+          overflow: hidden;
+        }
+        .btn::before{
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: var(--brown);
+            top: 100%;
+            left: 0;
+            z-index: -1;
+            transition: all .6s;
+        }
+        .btn:hover::before{
+            transform: translateY(-100%);
+        }
+        .btn:hover{
+          color: var(--yellow);
+          font-weight: normal;
+        }
+        .slick-slider button {
+          display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">    
+        <div class="lnb">
+            <ul>
+                <li>BRAND</li>
+                <li>STORE</li>
+                <li>MENU</li>
+                <li><h1>DUNKIN <img src="./images/logo_dunkindonuts.png" alt=""></h1></li>
+                <li>EVENT</li>
+                <li>가맹문의</li>
+                <li>고객센터</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <div class="mainBanner">
+            <div class="mainImg">
+                <img src="./images/dunkin_main.png" alt="">
+            </div>
+            <div class="toastIndonut">
+                <img src="./images/toast_in_donut.png" alt="">
+            </div>
+            <div class="toast">
+                <img src="./images/toast.png" alt="">
+            </div>
+            <div class="donut">
+                <img src="./images/top_donut.png" alt="">
+            </div>
+            <div class="mainText">
+                <p class="ko">
+                    잠깐의 여유와<br>
+                    달콤한 행복
+                </p>
+                <p class="en">
+                    SWEET BREAK, DUNKIN DOUNUTS
+                </p>
+                <a href="#">
+                    <p class="button">
+                        DUNKIN MENU
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="content new">
+            <div class="textBox">
+                <p class="orangeBox">new</p>
+                <h2>이달의 던킨</h2>
+                <p class="smallText">던킨의 새로운 메뉴를 소개합니다</p>
+            </div>
+            <div class="slider">
+              <div>
+                <img src="./images/1709288738.png">
+                <div class="shadow"></div>
+                
+                <div class="desc">
+                  <h3>초코베리 듀얼하트</h3>
+                  <p>달콤한 초코와 크런치의 만남<br>
+                  4월 한정 1+1 이벤트 진행!</p>
+                  <a href="#" class="btn">자세히 보기</a>
+                </div>
+              </div>
+            
+              <div>
+                <img src="./images/4.png">
+                <div class="shadow"></div>
+            
+                <div class="desc">
+                  <h3>허쉬 초코 머핀</h3>
+                  <p>던킨 시그니처 머핀과 <br>
+                    허쉬 초코의 달콤한 콜라보!
+                  </p>
+                  <a href="#" class="btn">자세히 보기</a>
+                </div>
+              </div>
+            
+              <div>
+                <img src="./images/5.png">
+                <div class="shadow"></div>
+            
+                <div class="desc">
+                  <h3>초코에 반한 엔젤도넛</h3>
+                  <p>
+                    바나나향 코팅한 도넛 위<br>
+                    귀여운 왓릿이즌 엔젤 토핑!
+                  </p>
+                  <a href="#" class="btn">자세히 보기</a>
+                </div>
+              </div>
+            
+              <div>
+                <img src="./images/6.png">
+                <div class="shadow"></div>
+            
+                <div class="desc">
+                  <h3>시나몬 츄로넛</h3>
+                  <p>츄러스의 재해석!<br>시나몬딥 글레이징 도넛</p>
+                  <a href="#" class="btn">자세히 보기</a>
+                </div>
+              </div>
+            </div>
+    </div>
+
+    
+      
+      </div>
+      <!-- partial -->
+        <script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
+      <script src='https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js'></script><script  src="./script/script.js"></script>
+    
+    
+</body>
+</html>
